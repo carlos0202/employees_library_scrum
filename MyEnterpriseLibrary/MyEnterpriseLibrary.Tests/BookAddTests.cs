@@ -27,5 +27,35 @@ namespace MyEnterpriseLibrary.Tests
             // Assert
             Assert.That(expectedResult, Is.EqualTo(true));
         }
+
+        /*
+        * 2. Add Book with no ISBN.
+        */
+        [Test]
+        public void Add_Book_With_Null_ISBN()
+        {
+            // Arrange
+            var book = new Book(iSBN: null, title: "Platero y yo", Authors: "Pedro Pablo Leon Jaramillo");
+            var bookDAO = new BookDAO();
+
+            // Act + Assert
+            Assert.That(() => bookDAO.AddBook(book), 
+                Throws.ArgumentNullException.With.Message.EqualTo("ISBN cannot be null."));
+        }
+
+        /*
+        * 2. Add Book with no Title.
+        */
+        [Test]
+        public void Add_Book_With_Null_Title()
+        {
+            // Arrange
+            var book = new Book(iSBN: "A123C", title: null, Authors: "Pedro Pablo Leon Jaramillo");
+            var bookDAO = new BookDAO();
+
+            // Act + Assert
+            Assert.That(() => bookDAO.AddBook(book),
+                Throws.ArgumentNullException.With.Message.EqualTo("Title cannot be null."));
+        }
     }
 }
