@@ -13,15 +13,30 @@ namespace MyEnterpriseLibrary.Tests
     {
 
         [Test]
-        public void lend_book_to_employee() {
+        public void Lend_book_to_employee() {
             //Arrange
             string bookId = "E0";
             int employeeId = 1;
-            BookLender bookLender = new BookLender();
+            BookDAO bookLender = new BookDAO();
             //Act
-            bool status = bookLender.lend(bookId, employeeId);
+            bool status = bookLender.Lend(bookId, employeeId);
             //Assert
             Assert.That(status, Is.EqualTo(true));
         }
+
+        [Test]
+        public void Lend_Book_When_Book_Not_Exist_Throw_ArgumentException()
+        {
+            //Arrange
+            string bookId = null;
+            int employeeId = 1;
+            BookDAO bookLender = new BookDAO();
+            //Assert
+            Assert.That(() => bookLender.Lend(bookId, employeeId), Throws.ArgumentException
+                .With
+                .Message.EqualTo("Book id cannot be found"));
+        }
     }
+
+
 }
