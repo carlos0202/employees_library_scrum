@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MyEnterpriseLibrary.Core
 {
@@ -13,7 +14,14 @@ namespace MyEnterpriseLibrary.Core
 
         public bool AddBook(Book book)
         {
-            throw new NotImplementedException();
+            if(_books.Any(b => b.ISBN == book.ISBN))
+            {
+                throw new InvalidOperationException("This book already exists in the database.");
+            }
+
+            _books.Add(book);
+
+            return true;
         }
     }
 }

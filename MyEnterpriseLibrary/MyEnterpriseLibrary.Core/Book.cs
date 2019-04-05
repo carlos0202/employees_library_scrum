@@ -2,14 +2,16 @@
 {
     public class Book
     {
-        private string Authors;
-        private string iSBN;
-        private string title;
+        public string Authors {
+            get; set; 
+        }
+        public string ISBN { get; set; }
+        public string Title { get; set; }
 
         public Book(string iSBN, string title, string Authors)
         {
-            this.iSBN = iSBN;
-            this.title = title;
+            this.ISBN = iSBN;
+            this.Title = title;
             this.Authors = Authors;
         }
     }
