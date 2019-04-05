@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace MyEnterpriseLibrary.Core
 {
-    interface IDao<T>
+    public interface IDao<Book>
     {
-        bool add(T t);
-        bool update(T t, string id);
-        List<T> getAll();
+        bool add(Book t);
+        bool update(Book t, string id);
+        List<Book> getAll();
 
     }
 }
