@@ -30,6 +30,11 @@ namespace MyEnterpriseLibrary.Core
                 throw new ArgumentNullException(null, "Title cannot be null.");
             }
 
+            if (book.Authors == null)
+            {
+                throw new ArgumentNullException(null, "Author cannot be null.");
+            }
+
             _books.Add(book);
 
             return true;

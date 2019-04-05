@@ -57,5 +57,20 @@ namespace MyEnterpriseLibrary.Tests
             Assert.That(() => bookDAO.AddBook(book),
                 Throws.ArgumentNullException.With.Message.EqualTo("Title cannot be null."));
         }
+
+        /*
+      * 2. Add Book with no Author.
+      */
+        [Test]
+        public void Add_Book_With_Null_Author()
+        {
+            // Arrange
+            var book = new Book(iSBN: "A123C", title: "Platero y yo", Authors: null);
+            var bookDAO = new BookDAO();
+
+            // Act + Assert
+            Assert.That(() => bookDAO.AddBook(book),
+                Throws.ArgumentNullException.With.Message.EqualTo("Author cannot be null."));
+        }
     }
 }
