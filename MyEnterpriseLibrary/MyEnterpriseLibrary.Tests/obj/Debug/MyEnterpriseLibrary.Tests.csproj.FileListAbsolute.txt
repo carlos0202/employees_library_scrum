@@ -9,3 +9,14 @@ C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\M
 C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\obj\Debug\MyEnterpriseLibrary.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\obj\Debug\MyEnterpriseLibrary.Tests.dll
 C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\obj\Debug\MyEnterpriseLibrary.Tests.pdb
+C:\Users\Recovery\Documents\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\bin\Debug\MyEnterpriseLibrary.Tests.dll.config
+C:\Users\Recovery\Documents\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\bin\Debug\MyEnterpriseLibrary.Tests.dll
+C:\Users\Recovery\Documents\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\bin\Debug\MyEnterpriseLibrary.Tests.pdb
+C:\Users\Recovery\Documents\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\bin\Debug\MyEnterpriseLibrary.Core.dll
+C:\Users\Recovery\Documents\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\bin\Debug\nunit.framework.dll
+C:\Users\Recovery\Documents\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\bin\Debug\MyEnterpriseLibrary.Core.pdb
+C:\Users\Recovery\Documents\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\bin\Debug\nunit.framework.pdb
+C:\Users\Recovery\Documents\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\bin\Debug\nunit.framework.xml
+C:\Users\Recovery\Documents\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\obj\Debug\MyEnterpriseLibrary.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Recovery\Documents\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\obj\Debug\MyEnterpriseLibrary.Tests.dll
+C:\Users\Recovery\Documents\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Tests\obj\Debug\MyEnterpriseLibrary.Tests.pdb

@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Book.cs" />
     <Compile Include="BookDAO.cs" />
+    <Compile Include="BookLender.cs" />
+    <Compile Include="IDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
