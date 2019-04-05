@@ -1,1 +1,6 @@
-C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Core\bin\Debug\MyEnterpriseLibrary.Core.exe.config
+C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Core\bin\Debug\MyEnterpriseLibrary.Core.dll.config
+C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Core\bin\Debug\MyEnterpriseLibrary.Core.dll
+C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Core\bin\Debug\MyEnterpriseLibrary.Core.pdb
+C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Core\obj\Debug\MyEnterpriseLibrary.Core.csprojResolveAssemblyReference.cache
+C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Core\obj\Debug\MyEnterpriseLibrary.Core.dll
+C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Core\obj\Debug\MyEnterpriseLibrary.Core.pdb
