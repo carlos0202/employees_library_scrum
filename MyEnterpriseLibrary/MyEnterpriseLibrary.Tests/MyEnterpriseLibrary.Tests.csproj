@@ -54,18 +54,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookAddTests.cs" />
-    <Compile Include="LendBookTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MyEnterpriseLibrary.Core\MyEnterpriseLibrary.Core.csproj">
-      <Project>{43CBBD6A-4C33-446D-8A28-58CA356EAF57}</Project>
-      <Name>MyEnterpriseLibrary.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
