@@ -22,7 +22,7 @@ namespace MyEnterpriseLibrary.Tests
             var bookDAO = new BookDAO();
 
             // Act
-            var expectedResult = bookDAO.AddBook(book);
+            bool expectedResult = bookDAO.AddBook(book);
 
             // Assert
             Assert.That(expectedResult, Is.EqualTo(true));

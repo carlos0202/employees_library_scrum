@@ -11,7 +11,7 @@ namespace MyEnterpriseLibrary.Core
         {
         }
 
-        public object AddBook(Book book)
+        public bool AddBook(Book book)
         {
             throw new NotImplementedException();
         }
