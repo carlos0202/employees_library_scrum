@@ -8,6 +8,7 @@ namespace MyEnterpriseLibrary.Core
 {
     class BookDaoPROD : IDao<Book>
     {
+
         public bool Add(Book t)
         {
             throw new NotImplementedException();
