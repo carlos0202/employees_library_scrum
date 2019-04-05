@@ -19,10 +19,10 @@ namespace MyEnterpriseLibrary.Tests
         {
             // Arrange
             var book = new Book(iSBN: "A123456Z", title: "Platero y yo", Authors: "Pedro Pablo Leon Jaramillo");
-            var bookDAO = new BookDAO();
+            IDao<Book> bookDAO = new BookDAO();
 
             // Act
-            bool expectedResult = bookDAO.AddBook(book);
+            bool expectedResult = bookDAO.Add(book);
 
             // Assert
             Assert.That(expectedResult, Is.EqualTo(true));
@@ -36,10 +36,10 @@ namespace MyEnterpriseLibrary.Tests
         {
             // Arrange
             var book = new Book(iSBN: null, title: "Platero y yo", Authors: "Pedro Pablo Leon Jaramillo");
-            var bookDAO = new BookDAO();
+            IDao<Book> bookDAO = new BookDAO();
 
             // Act + Assert
-            Assert.That(() => bookDAO.AddBook(book), 
+            Assert.That(() => bookDAO.Add(book), 
                 Throws.ArgumentNullException.With.Message.EqualTo("ISBN cannot be null."));
         }
 
@@ -51,10 +51,10 @@ namespace MyEnterpriseLibrary.Tests
         {
             // Arrange
             var book = new Book(iSBN: "A123C", title: null, Authors: "Pedro Pablo Leon Jaramillo");
-            var bookDAO = new BookDAO();
+            IDao<Book> bookDAO = new BookDAO();
 
             // Act + Assert
-            Assert.That(() => bookDAO.AddBook(book),
+            Assert.That(() => bookDAO.Add(book),
                 Throws.ArgumentNullException.With.Message.EqualTo("Title cannot be null."));
         }
 
@@ -66,11 +66,27 @@ namespace MyEnterpriseLibrary.Tests
         {
             // Arrange
             var book = new Book(iSBN: "A123C", title: "Platero y yo", Authors: null);
-            var bookDAO = new BookDAO();
+            IDao<Book> bookDAO = new BookDAO();
 
             // Act + Assert
-            Assert.That(() => bookDAO.AddBook(book),
+            Assert.That(() => bookDAO.Add(book),
                 Throws.ArgumentNullException.With.Message.EqualTo("Author cannot be null."));
+        }
+
+        /*
+        * 2. Add Book with duplicated ISBN.
+        */
+        [Test]
+        public void Add_Book_With_Duplicated_ISBN()
+        {
+            // Arrange
+            var book = new Book(iSBN: "A123C", title: "Se solto Teodoro", Authors: "Pedro Pablo Leon Jaramillo");
+            IDao<Book> bookDAO = new BookDAO();
+            bookDAO.Add(book);
+
+            // Act + Assert
+            Assert.That(() => bookDAO.Add(book),
+                Throws.ArgumentException.With.Message.EqualTo("A book with this ISBN already exists."));
         }
     }
 }

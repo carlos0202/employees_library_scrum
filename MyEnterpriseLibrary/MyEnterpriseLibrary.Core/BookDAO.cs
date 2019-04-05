@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace MyEnterpriseLibrary.Core
 {
-    public class BookDAO
+    public class BookDAO: IDao<Book>
     {
         private List<Book> _books;
 
@@ -13,11 +13,11 @@ namespace MyEnterpriseLibrary.Core
             _books = new List<Book>();
         }
 
-        public bool AddBook(Book book)
+        public bool Add(Book book)
         {
             if(_books.Any(b => b.ISBN == book.ISBN))
             {
-                throw new InvalidOperationException("This book already exists in the database.");
+                throw new ArgumentException("A book with this ISBN already exists.");
             }
 
             if(book.ISBN == null)
@@ -38,6 +38,16 @@ namespace MyEnterpriseLibrary.Core
             _books.Add(book);
 
             return true;
+        }
+
+        public List<Book> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Update(Book t, string id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
