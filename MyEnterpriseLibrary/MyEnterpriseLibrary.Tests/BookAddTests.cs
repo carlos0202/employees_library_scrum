@@ -19,7 +19,7 @@ namespace MyEnterpriseLibrary.Tests
         {
             // Arrange
             var book = new Book(iSBN: "A123456Z", title: "Platero y yo", Authors: "Pedro Pablo Leon Jaramillo");
-            IDao<Book> bookDAO = new BookDAO();
+            IDao bookDAO = new BookDAO();
 
             // Act
             bool expectedResult = bookDAO.Add(book);
@@ -36,7 +36,7 @@ namespace MyEnterpriseLibrary.Tests
         {
             // Arrange
             var book = new Book(iSBN: null, title: "Platero y yo", Authors: "Pedro Pablo Leon Jaramillo");
-            IDao<Book> bookDAO = new BookDAO();
+            IDao bookDAO = new BookDAO();
 
             // Act + Assert
             Assert.That(() => bookDAO.Add(book), 
@@ -51,7 +51,7 @@ namespace MyEnterpriseLibrary.Tests
         {
             // Arrange
             var book = new Book(iSBN: "A123C", title: null, Authors: "Pedro Pablo Leon Jaramillo");
-            IDao<Book> bookDAO = new BookDAO();
+            IDao bookDAO = new BookDAO();
 
             // Act + Assert
             Assert.That(() => bookDAO.Add(book),
@@ -66,7 +66,7 @@ namespace MyEnterpriseLibrary.Tests
         {
             // Arrange
             var book = new Book(iSBN: "A123C", title: "Platero y yo", Authors: null);
-            IDao<Book> bookDAO = new BookDAO();
+            IDao bookDAO = new BookDAO();
 
             // Act + Assert
             Assert.That(() => bookDAO.Add(book),
@@ -81,7 +81,7 @@ namespace MyEnterpriseLibrary.Tests
         {
             // Arrange
             var book = new Book(iSBN: "A123C", title: "Se solto Teodoro", Authors: "Pedro Pablo Leon Jaramillo");
-            IDao<Book> bookDAO = new BookDAO();
+            IDao bookDAO = new BookDAO();
             bookDAO.Add(book);
 
             // Act + Assert
