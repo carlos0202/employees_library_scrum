@@ -8,9 +8,9 @@ namespace MyEnterpriseLibrary.Core
 {
     public interface IDao<Book>
     {
-        bool add(Book t);
-        bool update(Book t, string id);
-        List<Book> getAll();
+        bool Add(Book t);
+        bool Update(Book t, string id);
+        List<Book> GetAll();
 
     }
 }
