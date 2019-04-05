@@ -10,6 +10,7 @@ namespace MyEnterpriseLibrary.Core
 
         public BookDAO()
         {
+            _books = new List<Book>();
         }
 
         public bool AddBook(Book book)
