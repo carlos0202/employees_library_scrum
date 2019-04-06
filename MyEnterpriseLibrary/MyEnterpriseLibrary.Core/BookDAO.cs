@@ -97,12 +97,12 @@ namespace MyEnterpriseLibrary.Core
 
         public bool Return(string bookId)
         {
-            Book book = FindById(bookId);
-
             if (string.IsNullOrEmpty(bookId))
             {
-                throw new ArgumentException("ISBN cannot be null");
+                throw new ArgumentNullException("ISBN cannot be null");
             }
+
+            Book book = FindById(bookId);
 
             if (book.Estatus == BookStatus.Available)
             {

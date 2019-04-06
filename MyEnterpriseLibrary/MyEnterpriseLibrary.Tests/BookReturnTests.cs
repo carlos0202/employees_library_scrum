@@ -41,7 +41,7 @@ namespace MyEnterpriseLibrary.Tests
 
             //Assert
             Assert.That(() => dao.Return(bookId),
-                Throws.ArgumentNullException.With.Message.EqualTo("ISBN cannot be null."));
+                Throws.ArgumentNullException.With.Message.EqualTo("ISBN cannot be null"));
         }
     }
 }

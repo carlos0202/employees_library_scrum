@@ -66,7 +66,7 @@ namespace MyEnterpriseLibrary.Core
                 {
                     string json = r.ReadToEnd();
 
-                    dynamic _db = JsonConvert.DeserializeObject<DB>(json);
+                    db = JsonConvert.DeserializeObject<DB>(json);
                 }
             }
             catch
