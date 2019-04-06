@@ -9,11 +9,11 @@
         public string Title { get; set; }
         public BookStatus Estatus { get; set; }
 
-        public Book(string iSBN, string title, string Authors)
+        public Book(string iSBN, string title, string authors)
         {
             this.ISBN = iSBN;
             this.Title = title;
-            this.Authors = Authors;
+            this.Authors = authors;
             this.Estatus = BookStatus.Available;
         }
     }
