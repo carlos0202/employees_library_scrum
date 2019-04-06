@@ -221,3 +221,4 @@ project.lock.json
 #####
 *.dll
 MyEnterpriseLibrary/MyEnterpriseLibrary.Core/bin/Debug/MyEnterpriseLibrary.Core.dll
+MyEnterpriseLibrary/.vs/MyEnterpriseLibrary/v14/.suo
