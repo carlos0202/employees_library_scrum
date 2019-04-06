@@ -34,17 +34,20 @@ namespace MyEnterpriseLibrary.Core
                 throw new ArgumentException("A book with this ISBN already exists.");
             }
 
-            if (string.IsNullOrEmpty(book.ISBN))
+            if (string.IsNullOrEmpty(book.ISBN) || 
+                string.IsNullOrWhiteSpace(book.ISBN.Trim()))
             {
                 throw new ArgumentNullException(null, "ISBN cannot be null.");
             }
 
-            if (string.IsNullOrEmpty(book.Title))
+            if (string.IsNullOrEmpty(book.Title) ||
+                string.IsNullOrEmpty(book.Title.Trim()))
             {
                 throw new ArgumentNullException(null, "Title cannot be null.");
             }
 
-            if (string.IsNullOrEmpty(book.Authors))
+            if (string.IsNullOrEmpty(book.Authors) || 
+                string.IsNullOrEmpty(book.Authors.Trim()))
             {
                 throw new ArgumentNullException(null, "Author cannot be null.");
             }
@@ -92,17 +95,22 @@ namespace MyEnterpriseLibrary.Core
 
         public Book FindById(string bookId)
         {
-            return db.books.Find(b => b.ISBN == bookId);
+            return db.books.FirstOrDefault(b => b.ISBN == bookId);
         }
 
         public bool Return(string bookId)
         {
             if (string.IsNullOrEmpty(bookId))
             {
-                throw new ArgumentNullException("ISBN cannot be null");
+                throw new ArgumentNullException(null, "ISBN cannot be null");
             }
 
             Book book = FindById(bookId);
+
+            if(book == null)
+            {
+                throw new InvalidOperationException("No book exists with the given ISBN");
+            }
 
             if (book.Estatus == BookStatus.Available)
             {

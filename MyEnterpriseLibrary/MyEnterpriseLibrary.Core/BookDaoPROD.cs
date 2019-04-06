@@ -86,7 +86,7 @@ namespace MyEnterpriseLibrary.Core
 
         public Book FindById(string bookId)
         {
-            return db.books.Find(b => b.ISBN == bookId);
+            return db.books.FirstOrDefault(b => b.ISBN == bookId);
         }
 
         public bool Lend(string bookId, int employeeId)
@@ -119,7 +119,28 @@ namespace MyEnterpriseLibrary.Core
 
         public bool Return(string bookId)
         {
-            throw new NotImplementedException();
+            GetDb();
+            if (string.IsNullOrEmpty(bookId))
+            {
+                throw new ArgumentNullException(null, "ISBN cannot be null");
+            }
+
+            Book book = FindById(bookId);
+
+            if (book == null)
+            {
+                throw new InvalidOperationException("No book exists with the given ISBN");
+            }
+
+            if (book.Estatus == BookStatus.Available)
+            {
+                throw new Exception("The book is not lended to anyone");
+            }
+
+            book.Estatus = BookStatus.Available;
+            FlushDb();
+
+            return true;
         }
     }
 }

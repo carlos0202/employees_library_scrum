@@ -36,12 +36,21 @@ namespace MyEnterpriseLibrary.Tests
             string bookId = null;
             BookDAO dao = new BookDAO();
 
-            //Act
-            dao.Add(new Book(bookId, "Libro Prueba", "JNovas"));
-
             //Assert
             Assert.That(() => dao.Return(bookId),
                 Throws.ArgumentNullException.With.Message.EqualTo("ISBN cannot be null"));
+        }
+
+        [Test]
+        public void Return_Book_That_Doesnt_Exists()
+        {
+            //Arrange
+            string bookId = "melenciano";
+            BookDAO dao = new BookDAO();
+
+            //Assert
+            Assert.That(() => dao.Return(bookId),
+                Throws.InvalidOperationException.With.Message.EqualTo("No book exists with the given ISBN"));
         }
     }
 }
