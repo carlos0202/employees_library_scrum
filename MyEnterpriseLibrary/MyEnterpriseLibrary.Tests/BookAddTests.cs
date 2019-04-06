@@ -18,7 +18,7 @@ namespace MyEnterpriseLibrary.Tests
         public void Add_Book_With_All_Info()
         {
             // Arrange
-            var book = new Book(iSBN: "A123456Z", title: "Platero y yo", Authors: "Pedro Pablo Leon Jaramillo");
+            var book = new Book(iSBN: "A123456Z", title: "Platero y yo", authors: "Pedro Pablo Leon Jaramillo");
             IDao bookDAO = new BookDAO();
 
             // Act
@@ -35,7 +35,7 @@ namespace MyEnterpriseLibrary.Tests
         public void Add_Book_With_Null_ISBN()
         {
             // Arrange
-            var book = new Book(iSBN: null, title: "Platero y yo", Authors: "Pedro Pablo Leon Jaramillo");
+            var book = new Book(iSBN: null, title: "Platero y yo", authors: "Pedro Pablo Leon Jaramillo");
             IDao bookDAO = new BookDAO();
 
             // Act + Assert
@@ -50,7 +50,7 @@ namespace MyEnterpriseLibrary.Tests
         public void Add_Book_With_Null_Title()
         {
             // Arrange
-            var book = new Book(iSBN: "A123C", title: null, Authors: "Pedro Pablo Leon Jaramillo");
+            var book = new Book(iSBN: "A123C", title: null, authors: "Pedro Pablo Leon Jaramillo");
             IDao bookDAO = new BookDAO();
 
             // Act + Assert
@@ -65,7 +65,7 @@ namespace MyEnterpriseLibrary.Tests
         public void Add_Book_With_Null_Author()
         {
             // Arrange
-            var book = new Book(iSBN: "A123C", title: "Platero y yo", Authors: null);
+            var book = new Book(iSBN: "A123C", title: "Platero y yo", authors: null);
             IDao bookDAO = new BookDAO();
 
             // Act + Assert
@@ -80,7 +80,7 @@ namespace MyEnterpriseLibrary.Tests
         public void Add_Book_With_Duplicated_ISBN()
         {
             // Arrange
-            var book = new Book(iSBN: "A123C", title: "Se solto Teodoro", Authors: "Pedro Pablo Leon Jaramillo");
+            var book = new Book(iSBN: "A123C", title: "Se solto Teodoro", authors: "Pedro Pablo Leon Jaramillo");
             IDao bookDAO = new BookDAO();
             bookDAO.Add(book);
 

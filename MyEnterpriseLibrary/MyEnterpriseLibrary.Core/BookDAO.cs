@@ -34,17 +34,17 @@ namespace MyEnterpriseLibrary.Core
                 throw new ArgumentException("A book with this ISBN already exists.");
             }
 
-            if (book.ISBN == null)
+            if (string.IsNullOrEmpty(book.ISBN))
             {
                 throw new ArgumentNullException(null, "ISBN cannot be null.");
             }
 
-            if (book.Title == null)
+            if (string.IsNullOrEmpty(book.Title))
             {
                 throw new ArgumentNullException(null, "Title cannot be null.");
             }
 
-            if (book.Authors == null)
+            if (string.IsNullOrEmpty(book.Authors))
             {
                 throw new ArgumentNullException(null, "Author cannot be null.");
             }
@@ -95,20 +95,13 @@ namespace MyEnterpriseLibrary.Core
             return db.books.Find(b => b.ISBN == bookId);
         }
 
-        public bool Return(string bookId, int employeeId)
+        public bool Return(string bookId)
         {
             Book book = FindById(bookId);
-            Employee employee = db.employees
-                .FirstOrDefault(e => e.Id == employeeId);
 
-            if (book == null)
+            if (string.IsNullOrEmpty(bookId))
             {
-                throw new ArgumentException("Book cannot be found");
-            }
-
-            if (employee == null)
-            {
-                throw new ArgumentException("Employee cannot be found");
+                throw new ArgumentException("ISBN cannot be null");
             }
 
             if (book.Estatus == BookStatus.Available)

@@ -20,22 +20,23 @@ namespace MyEnterpriseLibrary.Core
 
         public bool Add(Book t)
         {
+            GetDb();
             if (db.books.Any(b => b.ISBN == t.ISBN))
             {
                 throw new ArgumentException("A book with this ISBN already exists.");
             }
 
-            if (t.ISBN == null)
+            if (string.IsNullOrEmpty(t.ISBN))
             {
                 throw new ArgumentNullException(null, "ISBN cannot be null.");
             }
 
-            if (t.Title == null)
+            if (string.IsNullOrEmpty(t.Title))
             {
                 throw new ArgumentNullException(null, "Title cannot be null.");
             }
 
-            if (t.Authors == null)
+            if (string.IsNullOrEmpty(t.Authors))
             {
                 throw new ArgumentNullException(null, "Author cannot be null.");
             }
@@ -90,6 +91,7 @@ namespace MyEnterpriseLibrary.Core
 
         public bool Lend(string bookId, int employeeId)
         {
+            GetDb();
             Book book = FindById(bookId);
             Employee employee = db.employees
                 .FirstOrDefault(e => e.Id == employeeId);
@@ -115,15 +117,9 @@ namespace MyEnterpriseLibrary.Core
             return true;
         }
 
-        public bool Return(string bookId, int employeeId)
+        public bool Return(string bookId)
         {
             throw new NotImplementedException();
         }
-    }
-
-    internal class Db
-    {
-        public List<Book> Books { get; set; }
-        public object Employees { get; set; }
     }
 }

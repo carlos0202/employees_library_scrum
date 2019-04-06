@@ -22,13 +22,27 @@ namespace MyEnterpriseLibrary.Tests
             //Act
             dao.Add(new Book(bookId, "Libro Prueba", "JNovas"));
             dao.Lend(bookId, employeeId);
-            bool status = dao.Return(bookId, employeeId);
+            bool status = dao.Return(bookId);
 
             //Assert
             Assert.That(status, Is.EqualTo(true));
         }
 
+
+        [Test]
+        public void Return_Book_From_BookId_null()
+        {
+            //Arrange
+            string bookId = null;
+            int employeeId = 1;
+            BookDAO dao = new BookDAO();
+
+            //Act
+            dao.Add(new Book(bookId, "Libro Prueba", "JNovas"));
+
+            //Assert
+            Assert.That(() => dao.Return(bookId),
+                Throws.ArgumentNullException.With.Message.EqualTo("ISBN cannot be null."));
+        }
     }
-
-
 }
