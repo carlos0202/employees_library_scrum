@@ -11,7 +11,8 @@ namespace MyEnterpriseLibrary.Core
     public class BookDaoPROD : IDao
     {
         private DB db;
-        private string _dbUrl = @"C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Core\DB.json";
+        private string _dbUrl = 
+            @"C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Core\DB.json";
         public BookDaoPROD()
         {
             db = new DB();
