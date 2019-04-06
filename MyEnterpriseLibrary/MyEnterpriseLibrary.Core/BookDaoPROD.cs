@@ -68,6 +68,7 @@ namespace MyEnterpriseLibrary.Core
                 }
                 catch
                 {
+                    File.WriteAllText(_dbUrl, "{\"books\": [], \"employees\": [] }");
                 }
 
             }
