@@ -19,7 +19,8 @@ namespace MyEnterpriseLibrary.Core
                 string json = r.ReadToEnd();
                 try
                 {
-                    var _db = JsonConvert.DeserializeObject(json);
+                    dynamic _db = JsonConvert.DeserializeObject(json);
+                    _books = JsonConvert.DeserializeObject<List<Book>>(_db.books.ToString());
                 }
                 catch {
                 }
