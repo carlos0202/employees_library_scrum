@@ -59,7 +59,7 @@ namespace MyEnterpriseLibrary.Core
 
         public List<Book> GetAll()
         {
-            throw new NotImplementedException();
+            return db.books.ToList();
         }
 
         public bool Update(Book t, string id)
