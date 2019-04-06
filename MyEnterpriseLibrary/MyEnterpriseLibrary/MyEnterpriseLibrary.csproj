@@ -46,7 +46,13 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\AppLogo.cs" />
+    <Compile Include="Views\AskForMenuOptionSelectionM.cs" />
+    <Compile Include="Views\CatchMenuOptionM.cs" />
     <Compile Include="Views\Coordinator.cs" />
+    <Compile Include="Views\HandlerOptionSelectedM.cs" />
+    <Compile Include="Views\MainMenu.cs" />
+    <Compile Include="Views\PrintMenuM.cs" />
+    <Compile Include="Views\ShowAddBookFormM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
