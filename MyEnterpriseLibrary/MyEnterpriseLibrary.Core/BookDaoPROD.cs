@@ -73,7 +73,7 @@ namespace MyEnterpriseLibrary.Core
             {
                 string rootJson = "{\"books\": [], \"employees\": [] }";
                 File.WriteAllText(_dbUrl, rootJson);
-                dynamic _db = JsonConvert.DeserializeObject<DB>(rootJson);
+                db = JsonConvert.DeserializeObject<DB>(rootJson);
             }
         }
 
