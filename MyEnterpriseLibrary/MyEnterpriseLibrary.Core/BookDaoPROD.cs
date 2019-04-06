@@ -8,16 +8,22 @@ using System.IO;
 
 namespace MyEnterpriseLibrary.Core
 {
-    class BookDaoPROD : IDao
+    public class BookDaoPROD : IDao
     {
         private List<Book> _books;
-        private string _dbUrl = "/Books.json";
+        private string _dbUrl = "/DB.json";
         public BookDaoPROD()
         {
             using(StreamReader r = new StreamReader(Directory.GetCurrentDirectory() + _dbUrl))
             {
                 string json = r.ReadToEnd();
-                _books = JsonConvert.DeserializeObject<List<Book>>(json);
+                try
+                {
+                    var _db = JsonConvert.DeserializeObject(json);
+                }
+                catch {
+                }
+                
             }
         }
 
@@ -35,5 +41,7 @@ namespace MyEnterpriseLibrary.Core
         {
             throw new NotImplementedException();
         }
+
+        private bool Conne
     }
 }

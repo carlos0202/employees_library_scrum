@@ -49,6 +49,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyEnterpriseLibrary.Core\MyEnterpriseLibrary.Core.csproj">
+      <Project>{43cbbd6a-4c33-446d-8a28-58ca356eaf57}</Project>
+      <Name>MyEnterpriseLibrary.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
