@@ -60,20 +60,20 @@ namespace MyEnterpriseLibrary.Core
 
             if (book == null)
             {
-                throw new ArgumentException("Book cannot no be found");
+                throw new ArgumentException("Book cannot be found");
             }
 
             if (employee == null)
             {
-                throw new ArgumentException("Employee cannot no be found");
+                throw new ArgumentException("Employee cannot be found");
             }
 
-            if (book.Estatus == "Lent")
+            if (book.Estatus == BookStatus.Lent)
             {
                 throw new Exception("The book is already Lent");
             }
 
-            book.Estatus = "Lent";
+            book.Estatus = BookStatus.Lent;
 
             return true;
         }
