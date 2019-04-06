@@ -1,9 +1,5 @@
 ﻿using MyEnterpriseLibrary.Core;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyEnterpriseLibrary
 {
@@ -19,7 +15,8 @@ namespace MyEnterpriseLibrary
         }
 
 
-        private static void PrintAppHeader() {
+        private static void PrintAppHeader()
+        {
             Console.WriteLine(@"  ____              _                          
  |  _ \            | |       /\                
  | |_) | ___   ___ | | __   /  \   _ __  _ __  
@@ -31,7 +28,8 @@ namespace MyEnterpriseLibrary
 ");
         }
 
-        private static void ManageMainMenu() {
+        private static void ManageMainMenu()
+        {
             string[] menuItemsList = { "1--> Add Book", "0--> Salir" };
             Console.WriteLine("******* Main Menu **********");
             PrintMenu(menuItemsList);
@@ -39,8 +37,10 @@ namespace MyEnterpriseLibrary
             HandlerOptionSelected(optionSelect);
         }
 
-        private static void HandlerOptionSelected(int op) {
-            switch (op) {
+        private static void HandlerOptionSelected(int op)
+        {
+            switch (op)
+            {
                 case 1:
                     ShowAddBookForm();
                     break;
@@ -51,9 +51,11 @@ namespace MyEnterpriseLibrary
             }
         }
 
-        private static void PrintMenu(string[] menuItemsList) {
+        private static void PrintMenu(string[] menuItemsList)
+        {
             Console.WriteLine("");
-            foreach (string item in menuItemsList) {
+            foreach (string item in menuItemsList)
+            {
                 Console.WriteLine(item);
             }
             Console.WriteLine("");
@@ -79,7 +81,8 @@ namespace MyEnterpriseLibrary
             return option;
         }
 
-        private static int CatchMenuOption() {
+        private static int CatchMenuOption()
+        {
             int currentOption = -1;
             ConsoleKeyInfo cki = Console.ReadKey();
             try
@@ -90,7 +93,7 @@ namespace MyEnterpriseLibrary
             {
                 throw new ArgumentException("Option is not valid.");
             }
-            
+
             return currentOption;
         }
 
@@ -110,7 +113,7 @@ namespace MyEnterpriseLibrary
             Authors = Console.ReadLine();
 
             Book b = new Book(iSBN: iSBN,
-                title: Title, 
+                title: Title,
                 authors: Authors);
 
             IDao bookDao = new BookDaoPROD();
@@ -129,8 +132,8 @@ namespace MyEnterpriseLibrary
 
                 Console.WriteLine(ex.Message);
             }
-            
+
         }
-        
+
     }
 }
