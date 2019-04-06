@@ -42,6 +42,5 @@ namespace MyEnterpriseLibrary.Core
             throw new NotImplementedException();
         }
 
-        private bool Conne
     }
 }
