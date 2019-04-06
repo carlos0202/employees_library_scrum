@@ -94,5 +94,31 @@ namespace MyEnterpriseLibrary.Core
         {
             return db.books.Find(b => b.ISBN == bookId);
         }
+
+        public bool Return(string bookId, int employeeId)
+        {
+            Book book = FindById(bookId);
+            Employee employee = db.employees
+                .FirstOrDefault(e => e.Id == employeeId);
+
+            if (book == null)
+            {
+                throw new ArgumentException("Book cannot be found");
+            }
+
+            if (employee == null)
+            {
+                throw new ArgumentException("Employee cannot be found");
+            }
+
+            if (book.Estatus == BookStatus.Available)
+            {
+                throw new Exception("The book is not lended to anyone");
+            }
+
+            book.Estatus = BookStatus.Lent;
+
+            return true;
+        }
     }
 }

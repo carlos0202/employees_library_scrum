@@ -11,8 +11,7 @@ namespace MyEnterpriseLibrary.Core
     public class BookDaoPROD : IDao
     {
         private DB db;
-        private string _dbUrl = 
-            @"C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Core\DB.json";
+        private string _dbUrl = "Store/DB.json";
         public BookDaoPROD()
         {
             db = new DB();
@@ -111,6 +110,11 @@ namespace MyEnterpriseLibrary.Core
             FlushDb();
 
             return true;
+        }
+
+        public bool Return(string bookId, int employeeId)
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -13,5 +13,6 @@ namespace MyEnterpriseLibrary.Core
         List<Book> GetAll();
         Book FindById(string id);
         bool Lend(string bookId, int employeeId);
+        bool Return(string bookId, int employeeId);
     }
 }
