@@ -11,6 +11,7 @@ namespace MyEnterpriseLibrary.Core
         bool Add(Book t);
         bool Update(Book t, string id);
         List<Book> GetAll();
-
+        Book FindById(string id);
+        bool Lend(string bookId, int employeeId);
     }
 }

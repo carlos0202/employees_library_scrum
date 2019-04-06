@@ -53,6 +53,7 @@
     <Compile Include="Book.cs" />
     <Compile Include="BookDAO.cs" />
     <Compile Include="BookDaoPROD.cs" />
+    <Compile Include="DB.cs" />
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeDao.cs" />
     <Compile Include="IDao.cs" />

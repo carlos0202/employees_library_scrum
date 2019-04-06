@@ -10,10 +10,11 @@ namespace MyEnterpriseLibrary.Core
 {
     public class BookDaoPROD : IDao
     {
-        private Db db;
+        private DB db;
         private string _dbUrl = "DB.json";
         public BookDaoPROD()
         {
+            db = new DB();
             GetDb();
         }
 
@@ -79,6 +80,38 @@ namespace MyEnterpriseLibrary.Core
                 JsonSerializer serializer = new JsonSerializer();
                 serializer.Serialize(file, db);
             }
+        }
+
+        public Book FindById(string bookId)
+        {
+            return db.Books.Find(b => b.ISBN == bookId);
+        }
+
+        public bool Lend(string bookId, int employeeId)
+        {
+            Book book = FindById(bookId);
+            Employee employee = db.Employees
+                .FirstOrDefault(e => e.Id == employeeId);
+
+            if (book == null)
+            {
+                throw new ArgumentException("Book cannot be found");
+            }
+
+            if (employee == null)
+            {
+                throw new ArgumentException("Employee cannot be found");
+            }
+
+            if (book.Estatus == BookStatus.Lent)
+            {
+                throw new Exception("The book is already Lent");
+            }
+
+            book.Estatus = BookStatus.Lent;
+            FlushDb();
+
+            return true;
         }
     }
 

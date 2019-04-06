@@ -6,16 +6,30 @@ namespace MyEnterpriseLibrary.Core
 {
     public class BookDAO : IDao
     {
-        private List<Book> _books;
+        private DB db;
 
         public BookDAO()
         {
-            _books = new List<Book>();
+            db = new DB();
+            db.Employees = new List<Employee>();
+
+            db.Employees.Add(new Employee
+            {
+                Id = 1,
+                Name = "Omar",
+                DepartmentId = 2
+            });
+            db.Employees.Add(new Employee
+            {
+                Id = 2,
+                Name = "Jnovas",
+                DepartmentId = 3
+            });
         }
 
         public bool Add(Book book)
         {
-            if (_books.Any(b => b.ISBN == book.ISBN))
+            if (db.Books.Any(b => b.ISBN == book.ISBN))
             {
                 throw new ArgumentException("A book with this ISBN already exists.");
             }
@@ -35,7 +49,7 @@ namespace MyEnterpriseLibrary.Core
                 throw new ArgumentNullException(null, "Author cannot be null.");
             }
 
-            _books.Add(book);
+            db.Books.Add(book);
 
             return true;
         }
@@ -52,11 +66,9 @@ namespace MyEnterpriseLibrary.Core
 
         public bool Lend(string bookId, int employeeId)
         {
-            
-            EmployeeDao employeeDAO = new EmployeeDao();
-
             Book book = FindById(bookId);
-            Employee employee = employeeDAO.FindById(employeeId);
+            Employee employee = db.Employees
+                .FirstOrDefault(e => e.Id == employeeId);
 
             if (book == null)
             {
@@ -78,9 +90,9 @@ namespace MyEnterpriseLibrary.Core
             return true;
         }
 
-        private Book FindById(string bookId)
+        public Book FindById(string bookId)
         {
-            return _books.Find(b => b.ISBN == bookId);
+            return db.Books.Find(b => b.ISBN == bookId);
         }
     }
 }
