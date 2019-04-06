@@ -1,11 +1,1 @@
-{
-  "books": [
-    {
-      "Authors": "Pedro Pablo Leon Jaramillo",
-      "ISBN": "A123456Z",
-      "Title": "Platero y yo",
-      "Estatus": 0
-    }
-  ],
-  "employees": []
-}
+﻿{"books": [], "employees": [] }

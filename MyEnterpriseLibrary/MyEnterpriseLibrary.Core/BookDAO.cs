@@ -116,7 +116,7 @@ namespace MyEnterpriseLibrary.Core
                 throw new Exception("The book is not lended to anyone");
             }
 
-            book.Estatus = BookStatus.Lent;
+            book.Estatus = BookStatus.Available;
 
             return true;
         }

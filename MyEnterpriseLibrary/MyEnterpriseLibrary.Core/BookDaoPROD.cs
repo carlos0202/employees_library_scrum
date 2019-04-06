@@ -11,7 +11,7 @@ namespace MyEnterpriseLibrary.Core
     public class BookDaoPROD : IDao
     {
         private DB db;
-        private string _dbUrl = @"c:\DB.json";
+        private string _dbUrl = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\DB.json";
         public BookDaoPROD()
         {
             db = new DB();
@@ -59,18 +59,20 @@ namespace MyEnterpriseLibrary.Core
 
         protected void GetDb()
         {
-            using (StreamReader r = new StreamReader(_dbUrl))
+            try
             {
-                string json = r.ReadToEnd();
-                try
+                using (StreamReader r = new StreamReader(_dbUrl))
                 {
+                    string json = r.ReadToEnd();
+
                     dynamic _db = JsonConvert.DeserializeObject<Db>(json);
                 }
-                catch
-                {
-                    File.WriteAllText(_dbUrl, "{\"books\": [], \"employees\": [] }");
-                }
-
+            }
+            catch
+            {
+                string rootJson = "{\"books\": [], \"employees\": [] }";
+                File.WriteAllText(_dbUrl, rootJson);
+                dynamic _db = JsonConvert.DeserializeObject<Db>(rootJson);
             }
         }
 
