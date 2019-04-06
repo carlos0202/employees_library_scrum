@@ -114,7 +114,7 @@ namespace MyEnterpriseLibrary.Core
 
             if (book.Estatus == BookStatus.Available)
             {
-                throw new Exception("The book is not lended to anyone");
+                throw new InvalidOperationException("This book was not given to anyone");
             }
 
             book.Estatus = BookStatus.Available;

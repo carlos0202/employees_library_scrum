@@ -52,5 +52,20 @@ namespace MyEnterpriseLibrary.Tests
             Assert.That(() => dao.Return(bookId),
                 Throws.InvalidOperationException.With.Message.EqualTo("No book exists with the given ISBN"));
         }
+
+        [Test]
+        public void Return_Book_That_Already_Available()
+        {
+            //Arrange
+            string bookId = "E0";
+            BookDAO dao = new BookDAO();
+
+            //Act
+            dao.Add(new Book(bookId, "Libro Prueba", "JNovas"));
+
+            //Assert
+            Assert.That(() => dao.Return(bookId),
+                Throws.InvalidOperationException.With.Message.EqualTo("This book was not given to anyone"));
+        }
     }
 }
