@@ -11,15 +11,15 @@ namespace MyEnterpriseLibrary.Core
         public BookDAO()
         {
             db = new DB();
-            db.Employees = new List<Employee>();
+            db.employees = new List<Employee>();
 
-            db.Employees.Add(new Employee
+            db.employees.Add(new Employee
             {
                 Id = 1,
                 Name = "Omar",
                 DepartmentId = 2
             });
-            db.Employees.Add(new Employee
+            db.employees.Add(new Employee
             {
                 Id = 2,
                 Name = "Jnovas",
@@ -29,7 +29,7 @@ namespace MyEnterpriseLibrary.Core
 
         public bool Add(Book book)
         {
-            if (db.Books.Any(b => b.ISBN == book.ISBN))
+            if (db.books.Any(b => b.ISBN == book.ISBN))
             {
                 throw new ArgumentException("A book with this ISBN already exists.");
             }
@@ -49,7 +49,7 @@ namespace MyEnterpriseLibrary.Core
                 throw new ArgumentNullException(null, "Author cannot be null.");
             }
 
-            db.Books.Add(book);
+            db.books.Add(book);
 
             return true;
         }
@@ -67,7 +67,7 @@ namespace MyEnterpriseLibrary.Core
         public bool Lend(string bookId, int employeeId)
         {
             Book book = FindById(bookId);
-            Employee employee = db.Employees
+            Employee employee = db.employees
                 .FirstOrDefault(e => e.Id == employeeId);
 
             if (book == null)
@@ -92,7 +92,7 @@ namespace MyEnterpriseLibrary.Core
 
         public Book FindById(string bookId)
         {
-            return db.Books.Find(b => b.ISBN == bookId);
+            return db.books.Find(b => b.ISBN == bookId);
         }
     }
 }

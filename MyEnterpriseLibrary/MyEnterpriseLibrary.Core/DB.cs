@@ -10,11 +10,11 @@ namespace MyEnterpriseLibrary.Core
     {
         public DB()
         {
-            Books = new List<Book>();
-            Employees = new List<Employee>();
+            books = new List<Book>();
+            employees = new List<Employee>();
         }
 
-        public List<Book> Books { get; set; }
-        public List<Employee> Employees { get; set; }
+        public List<Book> books { get; set; }
+        public List<Employee> employees { get; set; }
     }
 }
