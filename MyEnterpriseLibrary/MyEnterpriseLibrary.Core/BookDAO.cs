@@ -49,5 +49,38 @@ namespace MyEnterpriseLibrary.Core
         {
             throw new NotImplementedException();
         }
+
+        public bool Lend(string bookId, int employeeId)
+        {
+            
+            EmployeeDao employeeDAO = new EmployeeDao();
+
+            Book book = FindById(bookId);
+            Employee employee = employeeDAO.FindById(employeeId);
+
+            if (book == null)
+            {
+                throw new ArgumentException("Book cannot no be found");
+            }
+
+            if (employee == null)
+            {
+                throw new ArgumentException("Employee cannot no be found");
+            }
+
+            if (book.Estatus == "Lent")
+            {
+                throw new Exception("The book is already Lent");
+            }
+
+            book.Estatus = "Lent";
+
+            return true;
+        }
+
+        private Book FindById(string bookId)
+        {
+            return _books.Find(b => b.ISBN == bookId);
+        }
     }
 }
