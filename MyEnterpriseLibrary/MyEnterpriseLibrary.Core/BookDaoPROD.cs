@@ -11,7 +11,7 @@ namespace MyEnterpriseLibrary.Core
     public class BookDaoPROD : IDao
     {
         private DB db;
-        private string _dbUrl = "DB.json";
+        private string _dbUrl = @"C:\Users\Recovery\Documents\GitHub\employees_library_scrum\MyEnterpriseLibrary\MyEnterpriseLibrary.Core\DB.json";
         public BookDaoPROD()
         {
             db = new DB();
@@ -20,7 +20,7 @@ namespace MyEnterpriseLibrary.Core
 
         public bool Add(Book t)
         {
-            if (db.Books.Any(b => b.ISBN == t.ISBN))
+            if (db.books.Any(b => b.ISBN == t.ISBN))
             {
                 throw new ArgumentException("A book with this ISBN already exists.");
             }
@@ -40,7 +40,8 @@ namespace MyEnterpriseLibrary.Core
                 throw new ArgumentNullException(null, "Author cannot be null.");
             }
 
-            db.Books.Add(t);
+            db.books.Add(t);
+            FlushDb();
 
             return true;
         }
@@ -58,7 +59,7 @@ namespace MyEnterpriseLibrary.Core
 
         protected void GetDb()
         {
-            using (StreamReader r = new StreamReader(Directory.GetCurrentDirectory() + "/" +  _dbUrl))
+            using (StreamReader r = new StreamReader(_dbUrl))
             {
                 string json = r.ReadToEnd();
                 try
@@ -75,22 +76,19 @@ namespace MyEnterpriseLibrary.Core
         protected void FlushDb()
         {
             // serialize JSON directly to a file again
-            using (StreamWriter file = File.CreateText(_dbUrl))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, db);
-            }
+            string newDbData = JsonConvert.SerializeObject(db, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(_dbUrl, newDbData);
         }
 
         public Book FindById(string bookId)
         {
-            return db.Books.Find(b => b.ISBN == bookId);
+            return db.books.Find(b => b.ISBN == bookId);
         }
 
         public bool Lend(string bookId, int employeeId)
         {
             Book book = FindById(bookId);
-            Employee employee = db.Employees
+            Employee employee = db.employees
                 .FirstOrDefault(e => e.Id == employeeId);
 
             if (book == null)

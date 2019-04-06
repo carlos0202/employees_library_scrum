@@ -11,7 +11,12 @@ namespace MyEnterpriseLibrary
     {
         static void Main(string[] args)
         {
-            IDao dao = new BookDaoPROD();
+            // Arrange
+            var book = new Book(iSBN: "A123456Z", title: "Platero y yo", Authors: "Pedro Pablo Leon Jaramillo");
+            IDao bookDAO = new BookDaoPROD();
+
+            // Act
+            bool expectedResult = bookDAO.Add(book);
         }
     }
 }
