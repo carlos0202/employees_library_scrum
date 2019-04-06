@@ -66,14 +66,14 @@ namespace MyEnterpriseLibrary.Core
                 {
                     string json = r.ReadToEnd();
 
-                    dynamic _db = JsonConvert.DeserializeObject<Db>(json);
+                    dynamic _db = JsonConvert.DeserializeObject<DB>(json);
                 }
             }
             catch
             {
                 string rootJson = "{\"books\": [], \"employees\": [] }";
                 File.WriteAllText(_dbUrl, rootJson);
-                dynamic _db = JsonConvert.DeserializeObject<Db>(rootJson);
+                dynamic _db = JsonConvert.DeserializeObject<DB>(rootJson);
             }
         }
 

@@ -34,7 +34,6 @@ namespace MyEnterpriseLibrary.Tests
         {
             //Arrange
             string bookId = null;
-            int employeeId = 1;
             BookDAO dao = new BookDAO();
 
             //Act
